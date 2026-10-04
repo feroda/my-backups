@@ -10,7 +10,7 @@ MIN_AGE=$((20*3600))
 MIN_FREE_GB=20
 
 mountpoint -q "$MNT" || { echo "Disco non collegato, salto."; exit 0; }
-[ -d "$DEST" ]       || { echo "Manca $DEST"; exit 1; }
+mkdir -p "$DEST"
 
 now=$(date +%s); last=$(cat "$STAMP" 2>/dev/null || echo 0)
 (( now - last < MIN_AGE )) && { echo "Backup recente, salto."; exit 0; }
