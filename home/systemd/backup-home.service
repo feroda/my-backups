@@ -1,0 +1,8 @@
+[Unit]
+Description=Backup home su disco USB
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/backup-home.sh
+Nice=19
+IOSchedulingClass=idle
